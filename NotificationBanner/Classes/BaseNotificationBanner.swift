@@ -43,7 +43,7 @@ public class BaseNotificationBanner: UIView {
             if let customBannerHeight = customBannerHeight {
                 return customBannerHeight
             } else {
-                return shouldAdjustForIphoneX() ? 88.0 : 64.0
+                return shouldAdjustForNotchFeaturedIphone() ? 88.0 : 64.0
             }
         } set {
             customBannerHeight = newValue
@@ -440,8 +440,8 @@ public class BaseNotificationBanner: UIView {
          Determines wether or not we should adjust the banner for the iPhoneX
      */
     
-    internal func shouldAdjustForIphoneX() -> Bool {
-        return NotificationBannerUtilities.isiPhoneX()
+    internal func shouldAdjustForNotchFeaturedIphone() -> Bool {
+        return NotificationBannerUtilities.isNotchFeaturedIPhone()
             && UIApplication.shared.statusBarOrientation.isPortrait
             && (self.parentViewController?.navigationController?.isNavigationBarHidden ?? true)
     }
